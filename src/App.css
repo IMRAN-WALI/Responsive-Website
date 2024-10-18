@@ -1,111 +1,276 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600&display=swap");
+:root {
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --background-color-dark: #000000;
+  --background-color-light: #ffffff;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --text-color-light: #213547;
+  --input-background: #1a1a1a;
+  --input-text-color: #ffffff;
+  --button-background: #1a1a1a;
+  --button-text-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  background-color: aliceblue;
+  margin: 0;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: "Poppins", sans-serif;
+  /* align-items: center; */
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 .app {
-  width: 400px;
-  padding: 25px;
-  color: #e5e5e5;
-  border-radius: 10px;
-  box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(108deg, #821ea9, #7c43e0);
-}
-.app h1 {
+  max-width: 600px;
+  width: 100%;
   text-align: center;
-  font-size: 24px;
-  font-weight: 400;
+  background-color: #007bff; /* Blue background */
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .input-wrapper {
   display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
-.input-wrapper input {
-  width: 100%;
-  padding: 5px 10px;
-  height: 30px;
-  font-size: 14px;
-  border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+
+input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px 0 0 8px;
+  font-size: 1rem;
+  color: var(--input-text-color);
+  background-color: var(--input-background);
+  transition: border-color 0.3s;
 }
-.input-wrapper input:focus {
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
   outline: none;
+  border-color: var(--secondary-color);
 }
-.input-wrapper button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: black;
-  color: #fff;
+
+button {
+  padding: 0.8rem;
   border: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0 8px 8px 0;
+  background-color: var(--button-background);
+  color: var(--button-text-color);
   cursor: pointer;
-  width: 80px;
+  transition: background-color 0.3s, border-color 0.3s;
 }
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
 .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(262deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
-  margin-top: 10px;
-  border-radius: 10px;
+  margin-top: 1.5rem;
 }
-.d-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flex-c {
-  flex-direction: column;
-}
+
 .location {
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
-.location h2 {
-  margin: 0;
-  margin-left: 10px;
+
+.datetext {
+  margin: 0.5rem 0;
   font-weight: 300;
 }
-.location h2 span {
-  font-size: 14px;
-}
-.datetext {
-  font-size: 14px;
-}
-.weatherdesc h3 {
-  margin: 0;
-  text-transform: capitalize;
-  font-weight: 400;
-}
-.tempstats {
-  width: 100%;
-  padding: 20px 0px;
-}
-.tempstats h1 {
-  font-size: 64px;
-  font-weight: 200;
-  margin: 0;
-}
-.tempstats h1 span {
-  font-size: 38px;
-}
-.tempstats h3 {
-  font-weight: 400;
-}
+
+.weatherdesc,
+.tempstats,
 .windstats {
-  padding: 0px 20px;
-  background: rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-  border-radius: 10px;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  margin: 1rem 0;
 }
-.windstats h3 {
-  margin-left: 10px;
-  font-weight: 400;
+
+.weatherdesc img {
+  width: 100px; /* Responsive image size */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0.5rem 0;
+}
+
+h1 {
+  font-size: 2rem; /* Main temperature size */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .weatherdesc img {
+    width: 80px; /* Smaller image size for mobile */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+  }
+  .app {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  input {
+    background-color: #f9f9f9;
+    color: #000;
+  }
+  button {
+    background-color: #f9f9f9;
+    color: #000;
+  }
+  button:hover {
+    background-color: #d0d0d0;
+  }
+}
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.2rem; /* Smaller font size for headers */
+  }
+  h2 {
+    font-size: 1rem; /* Smaller font size for subheaders */
+  }
+  h3 {
+    font-size: 0.9rem; /* Smaller font size for smaller headers */
+  }
+  input {
+    padding: 0.5rem; /* Smaller padding for input */
+    font-size: 0.8rem; /* Adjusted font size for input */
+  }
+  button {
+    padding: 0.5rem; /* Smaller padding for button */
+    font-size: 0.8rem; /* Adjusted font size for button */
+  }
+  .weatherdesc img {
+    width: 60px; /* Smaller image size for very small screens */
+  }
+  .app {
+    padding: 1.5rem; /* Reduce padding to fit smaller screens */
+  }
+}
+
+/* Styles for screens 768px and below */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem; /* Adjusted size for medium devices */
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  /* Weather App heading specifically */
+  .weather-app-heading {
+    font-size: 2rem; /* Example size for the Weather App title */
+  }
+}
+
+/* Styles for screens 480px and below */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem; /* Adjusted size for small devices */
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  .weatherdesc img {
+    width: 80px; /* Smaller image size for mobile */
+  }
+  /* Weather App heading specifically */
+  .weather-app-heading {
+    font-size: 1.7rem; /* Example size for smaller devices */
+  }
+}
+
+/* Styles for screens 320px and below */
+@media (max-width: 320px) {
+  h1 {
+    font-size: 1.2rem; /* Smaller font size for headers */
+  }
+  h2 {
+    font-size: 1rem; /* Smaller font size for subheaders */
+  }
+  h3 {
+    font-size: 0.9rem; /* Smaller font size for smaller headers */
+  }
+  input {
+    padding: 0.5rem;
+    font-size: 0.8rem; /* Adjusted font size for input */
+  }
+  button {
+    padding: 0.5rem;
+    font-size: 0.8rem; /* Adjusted font size for button */
+  }
+  .weatherdesc img {
+    width: 60px; /* Smaller image size for very small screens */
+  }
+  .app {
+    padding: 1.5rem; /* Reduce padding to fit smaller screens */
+  }
+  /* Weather App heading specifically */
+  .weather-app-heading {
+    font-size: 1.5rem; /* Example size for very small screens */
+  }
 }
